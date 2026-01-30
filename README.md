@@ -1,6 +1,6 @@
 # TimsCam-queue-estimator
 
-Permission from UBCO must be obtained if you wish to host this project if you are using it for anything beyond personal use, according to the Terms of use and Copyright information linked on the [https://ok.ubc.ca/current-students/](Current Students) page
+Permission from UBCO must be obtained if you wish to host this project if you are using it for anything beyond personal use, according to the Terms of use and Copyright information linked on the [Current Students](https://ok.ubc.ca/current-students) page
 
 If using this for a different m3u8 playlist / stream, obtain permission from whomever is hosting it if needed.
 
