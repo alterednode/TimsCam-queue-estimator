@@ -13,8 +13,9 @@ except ImportError as exc:
 
 HLS_URL = "https://streamserve.ok.ubc.ca/LiveCams/timcam.stream_720p/playlist.m3u8"
 
-# Custom ROI
+# ROI
 ROI = np.array([(390, 325), (450, 240), (720, 240), (720, 325)], dtype=np.int32)
+# this assumes a 720p frame. 
 
 # Model/config
 MODEL_PATH = "models/yolov8s_openvino_model/yolov8s.xml"
@@ -26,8 +27,8 @@ NMS_THRESHOLD = 0.5
 
 # Processing config
 SCALE = 1.0  # keep 720p; set <1.0 for speed (ROI auto-scales)
-FRAME_STRIDE = 1  # process every frame
-INFER_EVERY_SEC = .2  # set to 0 to infer on every processed frame
+FRAME_STRIDE = 2  # process every frame
+INFER_EVERY_SEC = 0  # set to 0 to infer on every processed frame
 SHOW_PREVIEW = True
 CROP_TO_ROI = True
 CROP_PAD = 40
