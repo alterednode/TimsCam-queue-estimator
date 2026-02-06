@@ -1,0 +1,54 @@
+defaults:
+  detector:
+    type: "openvino_yolo"
+    model_path: "models/yolov8s_openvino_model/yolov8s.xml"
+    device: "CPU"
+    model_size: 640
+    person_class_id: 0
+    conf_threshold: 0.15
+    nms_threshold: 0.5
+  processing:
+    scale: 1.0
+    every_n_frames: 2
+    max_processed_fps: 4.0
+    infer_every_seconds: 0.0
+    crop_to_roi: true
+    crop_pad: 40
+    show_preview: false
+  smoothing:
+    type: "time_weighted_average"
+    params:
+      window_seconds: 10.0
+
+cameras:
+  timcam_queue:
+    source_url: "https://streamserve.ok.ubc.ca/LiveCams/timcam.stream_720p/playlist.m3u8"
+    default_roi: "queue"
+    processing:
+      show_preview: true
+    rois:
+      queue:
+        - [390, 325]
+        - [450, 240]
+        - [720, 240]
+        - [720, 325]
+      queue_wide:
+        - [360, 350]
+        - [420, 220]
+        - [760, 220]
+        - [760, 350]
+
+  timcam_courtyard:
+    source_url: "https://streamserve.ok.ubc.ca/LiveCams/timcam.stream_720p/playlist.m3u8"
+    default_roi: "courtyard"
+    processing:
+      crop_to_roi: false
+      every_n_frames: 4
+      max_processed_fps: 2.0
+    rois:
+      courtyard:
+        - [130, 290]
+        - [220, 200]
+        - [640, 190]
+        - [700, 460]
+        - [220, 480]
